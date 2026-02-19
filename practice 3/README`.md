@@ -149,5 +149,3 @@ python3 Practice3/functions/basic_functions.py
 - Modify the code and see what changes.
 - Add `print()` statements to understand what happens step by step.
 - Run files one by one and read the output.
-
-Good luck and happy coding 🙂
