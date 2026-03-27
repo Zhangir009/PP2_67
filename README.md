@@ -1,151 +1,102 @@
-# Practice3 —  Simple Python Examples
+Practice 7: Python & PostgreSQL, PhoneBook
 
-This project contains **simple Python examples** designed for beginners (school level).
-It covers **four main topics**:
+1. Objective
 
-1. Functions  
-2. Lambda expressions  
-3. Classes  
-4. Inheritance  
+This practice focuses on integrating Python with PostgreSQL. You will design a relational database schema, connect to it from Python using psycopg2, and implement a console-based PhoneBook application that supports inserting, querying, updating, and deleting contacts.
 
-Each file can be run independently and prints results using `print()`.
+2. Key Concepts
 
----
+Abbreviation	Stands for	Meaning
+DB	Database	Used to store structured information (data)
+RDB	Relational Database	Data is stored in tables (also called relations), structured in rows and columns (also called records and fields). A record represents one entity; fields represent its individual data items.
+RDBMS	Relational Database Management System	Software needed to create and work with an RDB
+SQL	Structured Query Language	The language used to communicate with an RDBMS
+CRUD	Create, Read, Update, Delete	The four basic operations on data (rows, not tables)
+CRUD ↔ SQL mapping:
 
-## Project Structure
+CRUD operation	SQL keyword
+Create	INSERT
+Read	SELECT
+Update	UPDATE
+Delete	DELETE
+SQL is a declarative language - you describe what you want, not how to do it (unlike imperative languages like C++, Java, Python, etc.).
 
-```
-Practice3/
-├── functions/
-│   ├── basic_functions.py
-│   ├── function_arguments.py
-│   ├── return_values.py
-│   └── args_kwargs.py
-├── lambda/
-│   ├── lambda_basics.py
-│   ├── lambda_with_map.py
-│   ├── lambda_with_filter.py
-│   └── lambda_with_sorted.py
-├── classes/
-│   ├── class_definition.py
-│   ├── init_method.py
-│   ├── class_methods.py
-│   └── class_variables.py
-├── inheritance/
-│   ├── inheritance_basics.py
-│   ├── super_function.py
-│   ├── method_overriding.py
-│   └── multiple_inheritance.py
-└── README.md
-```
+PostgreSQL is an ORDBMS (Object-Relational DBMS) that uses its own dialect of SQL. We will use it as our database engine in this practice.
 
----
+Installing PostgreSQL: follow the steps at https://www.w3schools.com/postgresql/postgresql_install.php
 
-## How to Run the Code
+psycopg2 is the Python module that lets us work with PostgreSQL. Install it by running:
 
-Open a terminal (CMD / PowerShell / Terminal) and navigate to the folder that contains `Practice3`.
+pip install psycopg2
+(you may need to use pip3 instead of pip and/or psycopg2-binary instead of psycopg2)
 
-Example:
-```bash
-cd path/to/your/folder
-```
+3. Tasks
 
-Run any file like this:
-```bash
-python Practice3/functions/basic_functions.py
-python Practice3/lambda/lambda_basics.py
-python Practice3/classes/class_definition.py
-python Practice3/inheritance/inheritance_basics.py
-```
+3.1 Learn from PostgreSQL Tutorial
 
-If `python` does not work, try:
-```bash
-python3 Practice3/functions/basic_functions.py
-```
+Read the PostgreSQL + Python tutorial to understand how to connect and work with a database from Python:
 
----
+🔗 PostgreSQL Python Tutorial: https://neon.com/postgresql/postgresql-python
 
-## What Each Folder Contains
+Topics to cover:
 
-### 1) Functions (`functions/`)
-**Goal:** Learn how to create and use functions.
+Installing and configuring PostgreSQL
+Connecting to PostgreSQL from Python (psycopg2)
+Creating tables
+Inserting rows (single and batch)
+Querying data with SELECT
+Updating existing rows
+Deleting rows
+Handling transactions and error recovery
+3.2 Practical Exercise: PhoneBook
 
-- `basic_functions.py`  
-  Very basic functions (add numbers, check even/odd, greeting).
+Build a PhoneBook application backed by PostgreSQL.
 
-- `function_arguments.py`  
-  Function arguments: default values, `*args`, `**kwargs`.
+Design table(s) for the PhoneBook
+Implement inserting data from a CSV file
+Implement inserting data entered from the console (user name, phone)
+Implement updating a contact's first name or phone number
+Implement querying contacts with different filters (e.g. by name, by phone prefix)
+Implement deleting a contact by username or phone number
+3.3 Save Examples to GitHub
 
-- `return_values.py`  
-  Returning values from functions (single value and multiple values).
+Organize your code and push to your repository.
 
-- `args_kwargs.py`  
-  Simple usage of `*args` and `**kwargs`.
+Example repository structure:
 
----
+Practice7/
+├── phonebook.py
+├── config.py
+├── connect.py
+└── contacts.csv
+Commit instructions:
 
-### 2) Lambda (`lambda/`)
-**Goal:** Learn short anonymous functions (lambda).
+git add .
+git commit -m "Add Practice7 - PhoneBook with PostgreSQL"
+git push origin main
+4. What You Must Complete
 
-- `lambda_basics.py`  
-  Basic lambda examples.
+To pass this practice you must:
 
-- `lambda_with_map.py`  
-  Using `lambda` with `map()` to transform data.
+✅ Design and create PhoneBook table(s) in PostgreSQL
+✅ Implement CSV-based data import
+✅ Implement console-based data entry
+✅ Implement updating contacts (name or phone)
+✅ Implement querying with different filters
+✅ Implement deleting contacts by username or phone
+✅ Push code to GitHub with clear commit messages
+Deadline: check MS Teams announcements
 
-- `lambda_with_filter.py`  
-  Using `lambda` with `filter()` to select data.
+5. 🛠 Troubleshooting
 
-- `lambda_with_sorted.py`  
-  Using `lambda` with `sorted()` for custom sorting.
+Connection refused: make sure the PostgreSQL server is running (sudo service postgresql start or check pg_isready)
+Authentication errors: verify your username, password, and database name in the connection config
+psycopg2 not found: install with pip install psycopg2-binary (or pip3)
+CSV encoding: open CSV files with encoding='utf-8' to avoid decode errors
+Transactions: remember to call conn.commit() after write operations, or use with conn: as a context manager
+6. Resources
 
----
-
-### 3) Classes (`classes/`)
-**Goal:** Learn object-oriented programming basics.
-
-- `class_definition.py`  
-  Simple `Person` class.
-
-- `init_method.py`  
-  `__init__` method and simple object methods.
-
-- `class_methods.py`  
-  Instance methods, `@classmethod`, and `@staticmethod`.
-
-- `class_variables.py`  
-  Difference between class variables and instance variables.
-
----
-
-### 4) Inheritance (`inheritance/`)
-**Goal:** Learn how classes inherit from other classes.
-
-- `inheritance_basics.py`  
-  Basic inheritance (`Animal -> Dog`).
-
-- `super_function.py`  
-  Using `super()` to call parent class methods.
-
-- `method_overriding.py`  
-  Method overriding (same method name, different behavior).
-
-- `multiple_inheritance.py`  
-  Multiple inheritance and method resolution order (MRO).
-
----
-
-## Common Beginner Mistakes
-
-- `IndentationError` - incorrect spacing (tabs/spaces).
-- `NameError` - variable or function name is incorrect.
-- `TypeError` - wrong number or type of arguments.
-- Python not found - Python is not installed or not added to PATH.
-
----
-
-## Tip for Learning
-
-- Modify the code and see what changes.
-- Add `print()` statements to understand what happens step by step.
-- Run files one by one and read the output.
+📚 PostgreSQL Python Tutorial: https://neon.com/postgresql/postgresql-python/
+📚 psycopg2 Documentation: https://www.psycopg.org/docs/
+📚 PostgreSQL Official Docs: https://www.postgresql.org/docs/
+📚 Python csv Module: https://docs.python.org/3/library/csv.html
