@@ -2,7 +2,7 @@
 import os
 os.remove("demofile.txt") 
 
-# Check if file exists, then delete it:
+# Check if file exists, then delete it
 import os
 if os.path.exists("demofile.txt"):
   os.remove("demofile.txt")

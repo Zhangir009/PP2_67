@@ -121,7 +121,7 @@ print("\n" + "=" * 50)
 print("List comprehensions (often more Pythonic)")
 print("=" * 50)
 
-# Many uses of map/filter can be replaced with comprehensions.
+# Many uses of map/filter can be replaced with comprehensions
 # The combined example above could be written as:
 comprehension_result = sum(x**2 for x in numbers if x % 2 == 0)
 print("Using comprehension + sum:", comprehension_result)  # 220

@@ -9,7 +9,7 @@ if len(sys.argv) > 1 and not sys.argv[1].startswith('-'):
     dir_names = sys.argv[2:]  # remaining args are directory names
 else:
     base = Path.cwd()
-    dir_names = sys.argv[1:]  # if no base, all args are dir names
+    dir_names = sys.argv[1:]  # if no base, all args are dir name
 
 # If no directory names given, read from stdin (e.g., from a file)
 if not dir_names:

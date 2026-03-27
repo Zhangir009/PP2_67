@@ -28,7 +28,7 @@ print(pairs)
 short = [1, 2]
 long = ['a', 'b', 'c']
 print("zip truncates:", list(zip(short, long)))
-# build dict
+# build dictionary
 keys = ['name', 'age']
 vals = ['Alice', 30]
 d = dict(zip(keys, vals))

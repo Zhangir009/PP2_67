@@ -3,7 +3,7 @@ import psycopg2
 from config import load_config
 
 def get_connection():
-    """Establishes a connection to the PostgreSQL database."""
+    """Establishes a connection to the PostgreSQL database"""
     params = load_config()
     return psycopg2.connect(**params)
 
