@@ -28,7 +28,7 @@ def insert_or_update_contact(name, phone):
     try:
         with get_connection() as conn:
             with conn.cursor() as cur:
-                cur.callproc('insert_or_update_contact', (name, phone))
+                cur.execute("CALL insert_or_update_contact(%s, %s)", (name, phone))  # <- CALL для процедур
             conn.commit()
             print(f"✅ Contact '{name}' processed successfully")
     except Exception as e:
@@ -53,7 +53,7 @@ def delete_contact(identifier):
     try:
         with get_connection() as conn:
             with conn.cursor() as cur:
-                cur.callproc('delete_contact_by_name_or_phone', (identifier,))
+                cur.execute("CALL delete_contact_by_name_or_phone(%s)", (identifier,))
             conn.commit()
     except Exception as e:
         print(f"Error: {e}")
