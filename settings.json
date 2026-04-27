@@ -1,0 +1,29 @@
+{
+    "snake_head_color": [
+        255,
+        100,
+        180
+    ],
+    "snake_body_color": [
+        200,
+        60,
+        140
+    ],
+    "snake_outline_color": [
+        120,
+        30,
+        80
+    ],
+    "grid_overlay": true,
+    "sound": true,
+    "db": {
+        "host": "localhost",
+        "port": 5432,
+        "dbname": "snake_game",
+        "user": "postgres",
+        "password": ""
+    },
+    "car_color": "red",
+    "difficulty": "hard",
+    "username": "Zhangir1"
+}
